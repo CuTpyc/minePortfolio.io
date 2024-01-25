@@ -1,0 +1,259 @@
+@keyframes menuHover {
+    from {
+        // width: 0%;
+        opacity: 0;
+        bottom: toRem(-15);
+    }
+    to {
+        // width: 100%;
+        opacity: 1;
+        bottom: toRem(-2.5);
+    }
+}
+
+.header {
+    margin: toRem(20) 0;
+    &__container {
+    }
+
+    &__body {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(10);
+        align-items: center;
+    }
+
+    &__logo {
+        > img {
+            width: toRem(52);
+        }
+        > picture {
+            > img {
+                width: toRem(52);
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__menu {
+    }
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $mobile) {
+        flex-direction: row-reverse;
+        gap: toRem(15);
+    }
+
+    &__icon {
+    }
+
+    &__body {
+        @media (max-width: $mobile) {
+            position: fixed;
+            top: 20px;
+            right: -200%;
+            width: toRem(300);
+            height: toRem(300);
+            background-color: #f1f1f1;
+            .menu-open & {
+                right: 0;
+            }
+            transition: 0.45s;
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: toRem(32);
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            padding: toRem(45) toRem(36) toRem(29) toRem(26);
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        @media (max-width: $mobile) {
+            width: 100%;
+            padding-left: toRem(10);
+
+            &:not(:last-child)::before {
+                content: "";
+                position: absolute;
+                bottom: toRem(-2.5);
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $darkColor;
+                :hover {
+                    animation: menuMobileHover ease-in 0.3s;
+                }
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $darkColor;
+        font-size: 16px;
+        font-family: "Epilogue";
+        font-weight: 400;
+        line-height: math.div(24, 16);
+        position: relative;
+        &:hover {
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: toRem(-2.5);
+                left: 0;
+                width: 100%;
+                height: toRem(1);
+                background-color: $darkColor;
+                animation: menuHover ease-in 0.3s;
+            }
+        }
+        @media (max-width: $mobile) {
+            justify-content: flex-start;
+            gap: toRem(15);
+            width: 100%;
+            &:hover {
+                &::before {
+                    animation: none;
+                }
+            }
+        }
+    }
+    &__social {
+    }
+    &__social-hidden {
+        display: none;
+        @media (max-width: $mobile) {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+
+    &__feedback {
+        display: flex;
+        padding: toRem(8) toRem(20);
+        justify-content: center;
+        align-items: center;
+        background-color: $darkColor;
+        max-width: toRem(150);
+        transition: all 0.5s;
+        &:hover {
+            padding-right: 25px;
+            > span::after {
+                opacity: 1;
+                right: -20px;
+            }
+        }
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__button {
+        color: #fff;
+        font-size: toRem(16);
+        font-weight: 400;
+        line-height: math.div(24, 16);
+        font-family: "Epilogue";
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        &::after {
+            content: "\00bb";
+            position: absolute;
+            opacity: 0;
+            top: -3.5px;
+            right: -30px;
+            transition: 0.5s;
+            font-size: toRem(20);
+        }
+    }
+}
+.icon-menu {
+    display: none;
+    @media (max-width: $mobile) {
+        display: block;
+        position: relative;
+        width: toRem(30);
+        height: toRem(18);
+        z-index: 5;
+        @media (any-hover: none) {
+            cursor: default;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: toRem(2);
+            background-color: #292d32;
+            border-radius: toRem(2);
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - toRem(1));
+            display: flex;
+            justify-content: space-between;
+            > span:nth-of-type(1) {
+                width: 20%;
+                height: toRem(2);
+                background-color: #292d32;
+                border-radius: toRem(2);
+            }
+            > span:nth-of-type(2) {
+                width: 70%;
+                height: toRem(2);
+                background-color: #292d32;
+                border-radius: toRem(2);
+            }
+        }
+        .menu-open & {
+            span {
+                width: 0;
+            }
+            &::before,
+            &::after {
+            }
+            &::before {
+                top: calc(50% - toRem(1));
+                transform: rotate(-45deg);
+            }
+            &::after {
+                bottom: calc(50% - toRem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
+}

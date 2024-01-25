@@ -1,3 +1,182 @@
 //====================================================================================================
+@keyframes menuHover {
+    from {
+        // width: 0%;
+        opacity: 0;
+        bottom: toRem(-15);
+    }
+    to {
+        // width: 100%;
+        opacity: 1;
+        bottom: toRem(-2.5);
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: toRem(56);
+    &__wrapper {
+        max-width: toRem(1280);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: toRem(64);
+    }
+
+    &__info-block {
+        max-width: toRem(1100);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // @include adaptiveValue("gap", 410, 20);
+        padding: 0 0.9375rem;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            gap: toRem(26);
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(20);
+        @media (max-width: $mobile) {
+            justify-content: center;
+        }
+    }
+
+    &__logo {
+        > img {
+            width: toRem(52);
+        }
+        > picture {
+            > img {
+                width: toRem(52);
+            }
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: toRem(32);
+    }
+
+    &__link {
+        color: #000;
+        font-family: "Epilogue";
+        font-size: toRem(16);
+        font-weight: 400;
+        line-height: math.div(24, 16);
+        position: relative;
+        &:hover {
+            cursor: pointer;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: toRem(-2.5);
+                left: 0;
+                width: 100%;
+                height: toRem(1);
+                background-color: $darkColor;
+                animation: menuHover ease-in 0.3s;
+            }
+        }
+    }
+
+    &__subscriptions {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(16);
+    }
+
+    &__line {
+        display: flex;
+        height: toRem(1);
+        max-width: toRem(1280);
+        width: 90%;
+        background-color: #000;
+    }
+
+    &__last-section {
+        display: flex;
+        justify-content: space-between;
+        max-width: toRem(1278);
+        width: 100%;
+        padding: 0 toRem(110);
+        @media (max-width: $mobile) {
+            padding: 0 toRem(40);
+        }
+    }
+
+    &__rights {
+        color: #000;
+        font-family: "Roboto";
+        font-size: toRem(14);
+        font-weight: 400;
+        line-height: math.div(21, 14);
+        > span {
+            > span {
+                display: none;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 12px;
+    }
+}
+.subscriptions-items {
+    &__title {
+        color: #000;
+        font-family: "Epilogue";
+        font-size: toRem(16);
+        font-weight: 700;
+        line-height: math.div(24, 16);
+    }
+
+    &__subtitle {
+        color: #000;
+        font-family: "Roboto";
+        font-size: toRem(12);
+        font-weight: 400;
+        line-height: math.div(18, 12);
+    }
+}
+.form-items {
+    display: flex;
+    gap: toRem(16);
+    @media (max-width: $mobile) {
+        flex-direction: column;
+    }
+    &__input {
+        border: toRem(1) solid black;
+        padding: toRem(12);
+    }
+
+    &__button {
+        display: flex;
+        // padding: toRem(12) toRem(24);
+        justify-content: center;
+        align-items: center;
+        border: toRem(1) solid black;
+        background-color: #000;
+        color: #fff;
+        font-family: "Epilogue";
+        font-size: toRem(16);
+        font-weight: 400;
+        line-height: math.div(24, 16);
+        z-index: 2;
+        @media (max-width: $mobile) {
+            max-width: toRem(127);
+        }
+    }
+}
 
 //====================================================================================================
