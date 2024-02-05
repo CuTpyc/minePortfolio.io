@@ -50,6 +50,8 @@
     }
 
     &__logo {
+        display: flex;
+        align-items: center;
         > img {
             width: toRem(52);
         }
@@ -57,6 +59,18 @@
             > img {
                 width: toRem(52);
             }
+        }
+        > span {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: $darkColor;
+            font-size: toRem(32);
+            font-weight: 800;
+            line-height: 50%;
+            text-transform: uppercase;
+            height: toRem(55.55);
+            text-align: center;
         }
     }
 

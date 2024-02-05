@@ -25,13 +25,29 @@
     }
 
     &__logo {
+        display: flex;
+        align-items: center;
+
         > img {
-            width: toRem(52);
+            width: toRem(50);
         }
         > picture {
             > img {
-                width: toRem(52);
+                width: toRem(50);
             }
+        }
+        > span {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: $darkColor;
+            font-size: toRem(32);
+            font-weight: 800;
+            line-height: 50%;
+            text-transform: uppercase;
+            height: toRem(55.55);
+            text-align: center;
+            // text-shadow: #350d4c toRem(2) toRem(5) toRem(5);
         }
     }
 
@@ -67,6 +83,7 @@
             background-color: #f1f1f1;
             .menu-open & {
                 right: 0;
+                z-index: 4;
             }
             transition: 0.45s;
         }
@@ -200,6 +217,7 @@
         position: relative;
         width: toRem(30);
         height: toRem(18);
+        margin-top: toRem(-7);
         z-index: 5;
         @media (any-hover: none) {
             cursor: default;
